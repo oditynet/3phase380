@@ -1,0 +1,102 @@
+{
+  "Чайник": {
+    "power_kw": 2.0,
+    "phases": 1,
+    "usage": "temporary"
+  },
+  "Микроволновка": {
+    "power_kw": 0.9,
+    "phases": 1,
+    "usage": "temporary"
+  },
+  "Холодильник": {
+    "power_kw": 0.4,
+    "phases": 1,
+    "usage": "constant"
+  },
+  "Стиральная машина": {
+    "power_kw": 2.2,
+    "phases": 1,
+    "usage": "temporary"
+  },
+  "Утюг": {
+    "power_kw": 1.5,
+    "phases": 1,
+    "usage": "rare"
+  },
+  "Телевизор": {
+    "power_kw": 0.15,
+    "phases": 1,
+    "usage": "constant"
+  },
+  "Компьютер": {
+    "power_kw": 2.0,
+    "phases": 1,
+    "usage": "constant"
+  },
+  "Кондиционер": {
+    "power_kw": 2.0,
+    "phases": 1,
+    "usage": "temporary"
+  },
+  "Бойлер": {
+    "power_kw": 3.0,
+    "phases": 1,
+    "usage": "rare"
+  },
+  "Насос": {
+    "power_kw": 0.4,
+    "phases": 1,
+    "usage": "constant"
+  },
+  "Электроплита": {
+    "power_kw": 7.0,
+    "phases": 3,
+    "usage": "temporary"
+  },
+  "Духовка": {
+    "power_kw": 4.0,
+    "phases": 1,
+    "usage": "rare"
+  },
+  "Вытяжка": {
+    "power_kw": 0.5,
+    "phases": 1,
+    "usage": "temporary"
+  },
+  "Канализация насос": {
+    "power_kw": 0.4,
+    "phases": 1,
+    "usage": "constant"
+  },
+  "Скважина": {
+    "power_kw": 0.4,
+    "phases": 1,
+    "usage": "constant"
+  },
+  "настольная лампа": {
+    "power_kw": 0.4,
+    "phases": 1,
+    "usage": "rare"
+  },
+  "Фен": {
+    "power_kw": 1.5,
+    "phases": 1,
+    "usage": "rare"
+  },
+  "зарядка телефона": {
+    "power_kw": 1.0,
+    "phases": 1,
+    "usage": "temporary"
+  },
+  "Кормбайн": {
+    "power_kw": 2.0,
+    "phases": 1,
+    "usage": "rare"
+  },
+  "ЭлектроКотел": {
+    "power_kw": 12.0,
+    "phases": 3,
+    "usage": "constant"
+  }
+}

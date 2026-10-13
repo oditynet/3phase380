@@ -1,0 +1,10 @@
+{
+  "voltage_A": 190.0,
+  "voltage_B": 220.0,
+  "voltage_C": 190.0,
+  "voltage_line_AB": 400.0,
+  "voltage_line_BC": 400.0,
+  "voltage_line_AC": 400.0,
+  "input_limit_kw": 15.0,
+  "input_limit_a": 25.0
+}

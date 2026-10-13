@@ -1,0 +1,562 @@
+{
+  "walls": [],
+  "sockets": [
+    {
+      "x": 970.0,
+      "y": 763.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "ЭлектроКотел",
+        "power_kw": 12.0,
+        "phases": 3,
+        "usage": "constant",
+        "phase_connections": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "x": 972.0,
+      "y": 707.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Бойлер",
+        "power_kw": 3.0,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "A"
+        ]
+      }
+    },
+    {
+      "x": 1141.0,
+      "y": 646.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Духовка",
+        "power_kw": 4.0,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "A"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1140.0,
+      "y": 620.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Электроплита",
+        "power_kw": 7.0,
+        "phases": 3,
+        "usage": "temporary",
+        "phase_connections": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "x": 1093.0,
+      "y": 836.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Насос",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "C"
+        ]
+      }
+    },
+    {
+      "x": 869.0,
+      "y": 7.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Скважина",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "B"
+        ]
+      }
+    },
+    {
+      "x": 793.0,
+      "y": 597.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Холодильник",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1010.0,
+      "y": 761.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Холодильник",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1003.0,
+      "y": 689.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Чайник",
+        "power_kw": 2.0,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1001.0,
+      "y": 664.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Микроволновка",
+        "power_kw": 0.9,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1002.0,
+      "y": 635.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Кормбайн",
+        "power_kw": 2.0,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1004.0,
+      "y": 563.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Вытяжка",
+        "power_kw": 0.5,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 352.0,
+      "y": 498.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Вытяжка",
+        "power_kw": 0.5,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "A"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 506.0,
+      "y": 496.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Стиральная машина",
+        "power_kw": 2.2,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "A"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 482.0,
+      "y": 494.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Фен",
+        "power_kw": 1.5,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "A"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 600.0,
+      "y": 645.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Вытяжка",
+        "power_kw": 0.5,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "A"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 599.0,
+      "y": 746.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Стиральная машина",
+        "power_kw": 2.2,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "A"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1143.0,
+      "y": 492.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Кондиционер",
+        "power_kw": 2.0,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1147.0,
+      "y": 189.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "зарядка телефона",
+        "power_kw": 1.0,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 1151.0,
+      "y": 319.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "зарядка телефона",
+        "power_kw": 1.0,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 870.0,
+      "y": 77.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "зарядка телефона",
+        "power_kw": 1.0,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 865.0,
+      "y": 198.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Телевизор",
+        "power_kw": 0.15,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 870.0,
+      "y": 435.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "зарядка телефона",
+        "power_kw": 1.0,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 547.0,
+      "y": 664.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Телевизор",
+        "power_kw": 0.15,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 549.0,
+      "y": 644.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Утюг",
+        "power_kw": 1.5,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 316.0,
+      "y": 745.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "настольная лампа",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 315.0,
+      "y": 578.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "настольная лампа",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 629.0,
+      "y": 66.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Компьютер",
+        "power_kw": 2.0,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 825.0,
+      "y": 129.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "настольная лампа",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 596.0,
+      "y": 97.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "настольная лампа",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 594.0,
+      "y": 222.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Телевизор",
+        "power_kw": 0.15,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 548.0,
+      "y": 216.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "Телевизор",
+        "power_kw": 0.15,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 324.0,
+      "y": 306.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "настольная лампа",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 320.0,
+      "y": 126.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "настольная лампа",
+        "power_kw": 0.4,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 866.0,
+      "y": 216.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "зарядка телефона",
+        "power_kw": 1.0,
+        "phases": 1,
+        "usage": "temporary",
+        "phase_connections": [
+          "B"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 778.0,
+      "y": 597.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "зарядка телефона",
+        "power_kw": 1.0,
+        "phases": 1,
+        "usage": "rare",
+        "phase_connections": [
+          "A"
+        ],
+        "cos_phi": 1.0
+      }
+    },
+    {
+      "x": 974.0,
+      "y": 650.0,
+      "diameter": 12,
+      "appliance": {
+        "name": "зарядка телефона",
+        "power_kw": 1.0,
+        "phases": 1,
+        "usage": "constant",
+        "phase_connections": [
+          "C"
+        ],
+        "cos_phi": 1.0
+      }
+    }
+  ],
+  "photo_path": "/home/odity/bin/II/chat-II/1/Планировка (2).jpg",
+  "room_width": 1400,
+  "room_height": 900
+}
