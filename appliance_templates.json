@@ -1,8 +1,9 @@
 {
   "Чайник": {
-    "power_kw": 2.0,
+    "power_kw": 2.2,
     "phases": 1,
-    "usage": "temporary"
+    "usage": "temporary",
+    "season": "all"
   },
   "Микроволновка": {
     "power_kw": 0.9,
@@ -30,14 +31,18 @@
     "usage": "constant"
   },
   "Компьютер": {
-    "power_kw": 2.0,
+    "power_kw": 0.4,
     "phases": 1,
-    "usage": "constant"
+    "usage": "constant",
+    "cos_phi": 1.0,
+    "season": "all"
   },
   "Кондиционер": {
     "power_kw": 2.0,
     "phases": 1,
-    "usage": "temporary"
+    "usage": "temporary",
+    "cos_phi": 1.0,
+    "season": "summer"
   },
   "Бойлер": {
     "power_kw": 3.0,
@@ -57,12 +62,14 @@
   "Духовка": {
     "power_kw": 4.0,
     "phases": 1,
-    "usage": "rare"
+    "usage": "temporary",
+    "season": "all"
   },
   "Вытяжка": {
-    "power_kw": 0.5,
+    "power_kw": 0.2,
     "phases": 1,
-    "usage": "temporary"
+    "usage": "temporary",
+    "season": "all"
   },
   "Канализация насос": {
     "power_kw": 0.4,
@@ -89,14 +96,81 @@
     "phases": 1,
     "usage": "temporary"
   },
-  "Кормбайн": {
+  "ЭлектроКотел": {
+    "power_kw": 9.0,
+    "phases": 3,
+    "usage": "constant",
+    "season": "winter"
+  },
+  "Комбайн": {
     "power_kw": 2.0,
     "phases": 1,
-    "usage": "rare"
+    "usage": "rare",
+    "cos_phi": 1.0
   },
-  "ЭлектроКотел": {
-    "power_kw": 12.0,
+  "Пылесос": {
+    "power_kw": 1.8,
+    "phases": 1,
+    "usage": "rare",
+    "cos_phi": 1.0,
+    "season": "all"
+  },
+  "Очиститель воды": {
+    "power_kw": 0.5,
+    "phases": 1,
+    "usage": "temporary",
+    "cos_phi": 1.0,
+    "season": "all"
+  },
+  "Электрокотел-50%": {
+    "power_kw": 5.0,
     "phases": 3,
-    "usage": "constant"
+    "usage": "temporary",
+    "season": "winter"
+  },
+  "Электроплита50%": {
+    "power_kw": 4.0,
+    "phases": 1,
+    "usage": "temporary",
+    "cos_phi": 1.0,
+    "season": "all"
+  },
+  "зарядка телефона 0.5кВт": {
+    "power_kw": 0.5,
+    "phases": 1,
+    "usage": "temporary",
+    "cos_phi": 1.0,
+    "season": "all"
+  },
+  "Свет0.2 кВт": {
+    "power_kw": 0.2,
+    "phases": 1,
+    "usage": "temporary",
+    "cos_phi": 1.0,
+    "season": "all"
+  },
+  "СветДиодный": {
+    "power_kw": 0.02,
+    "phases": 1,
+    "usage": "temporary",
+    "season": "all"
+  },
+  "Духовка50%": {
+    "power_kw": 2.0,
+    "phases": 1,
+    "usage": "rare",
+    "season": "all"
+  },
+  "Чайник1700": {
+    "power_kw": 1.7,
+    "phases": 1,
+    "usage": "temporary",
+    "season": "all"
+  },
+  "Электроплита_2комфорки": {
+    "power_kw": 3.5,
+    "phases": 1,
+    "usage": "temporary",
+    "season": "all"
   }
 }

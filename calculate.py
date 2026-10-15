@@ -54,7 +54,6 @@ TEMPLATES_FILE = "appliance_templates.json"
 PHASE_COLORS_FILE = "phase_colors.json"
 SETTINGS_FILE = "power_settings.json"
 
-# --- новые константы для плана дома ---
 GRAB_TOLERANCE_PLAN = 40
 WIRE_OVERLAP_SHIFT = 5
 SWITCH_ALIGN_TOLERANCE = 25
@@ -96,10 +95,28 @@ OUTPUT_WIRE_LEN = 40
 OUTPUT_SQUARE_FACTOR = 3
 
 RANDOM_OUTPUT_COLORS = [
-    "#E53935", "#43A047", "#1E88E5", "#8E24AA",
-    "#FB8C00", "#00ACC1", "#6D4C41", "#00897B",
-    "#C62828", "#2E7D32", "#1565C0", "#6A1B9A",
-    "#EF6C00", "#00838F", "#4E342E", "#00695C",
+    # --- перемешанная палитра из 100 цветов ---
+    "#E53935", "#1E88E5", "#43A047", "#FB8C00", "#8E24AA",
+    "#00ACC1", "#FDD835", "#D81B60", "#3949AB", "#7CB342",
+    "#F4511E", "#00897B", "#EC407A", "#5E35B1", "#C0CA33",
+    "#039BE5", "#6D4C41", "#AD1457", "#2E7D32", "#6A1B9A",
+    "#F9A825", "#1565C0", "#00838F", "#C62828", "#4E342E",
+    "#546E7A", "#9C27B0", "#827717", "#00695C", "#EF6C00",
+    "#283593", "#D84315", "#37474F", "#7B1FA2", "#006064",
+    "#BF360C", "#3F51B5", "#4CAF50", "#FF5722", "#673AB7",
+    "#009688", "#FFC107", "#E91E63", "#2196F3", "#8BC34A",
+    "#FF9800", "#795548", "#03A9F4", "#CDDC39", "#9E9D24",
+    "#1976D2", "#388E3C", "#F57C00", "#7E57C2", "#26A69A",
+    "#FFB300", "#C2185B", "#303F9F", "#689F38", "#E64A19",
+    "#0277BD", "#558B2F", "#F57F17", "#4527A0", "#00838F",
+    "#FF6F00", "#4E342E", "#7986CB", "#43A047", "#FF8F00",
+    "#8E24AA", "#039BE5", "#A1887F", "#7CB342", "#F9A825",
+    "#1565C0", "#AD1457", "#2E7D32", "#00ACC1", "#EF6C00",
+    "#5E35B1", "#C62828", "#00695C", "#D81B60", "#3949AB",
+    "#00897B", "#F4511E", "#6A1B9A", "#43A047", "#FB8C00",
+    "#1E88E5", "#E53935", "#00838F", "#283593", "#827717",
+    "#9C27B0", "#BF360C", "#4E342E", "#546E7A", "#D84315",
+    "#006064", "#7B1FA2", "#37474F",
 ]
 
 TEMPLATE_GROUPS = {
@@ -120,7 +137,16 @@ DIALOG_STATE = {
     "group": "Все",
     "search": "",
     "group_open": {},
+    "selected_name": "",
 }
+
+LAST_APPLIANCE_CHOICE = {
+    "name": None,
+    "template": None,
+}
+LAST_APPLIANCE_FILE = "last_appliance.json"
+
+BREAKER_PICK_STATE_FILE = "breaker_pick_state.json"
 
 
 # ============================================================
@@ -306,8 +332,6 @@ def season_to_ru(key):
 
 
 def orthogonalize(points):
-    """Ортогонализация ломаной — только горизонтальные и вертикальные
-    отрезки. Логика полностью совпадает со щитом."""
     if len(points) < 2:
         return list(points)
     result = [points[0]]
@@ -818,10 +842,37 @@ class ApplianceDialog(tk.Toplevel):
             self.usage_var.set(usage_to_ru(a["usage"]))
             self.season_var.set(season_to_ru(a.get("season", "all")))
             self.phases_conn_var.set("".join(a["phase_connections"]))
+        elif LAST_APPLIANCE_CHOICE["name"] is not None:
+            t = LAST_APPLIANCE_CHOICE["template"] or {}
+            self.name_var.set(LAST_APPLIANCE_CHOICE["name"])
+            self.power_var.set(str(t.get("power_kw", "")))
+            self.phases_var.set(str(t.get("phases", 1)))
+            self.usage_var.set(usage_to_ru(t.get("usage", "temporary")))
+            self.season_var.set(season_to_ru(t.get("season", "all")))
+            self.phases_conn_var.set("A")
+            self._select_template_in_list(LAST_APPLIANCE_CHOICE["name"])
 
         self.transient(parent)
         self.wait_visibility()
         self.grab_set()
+
+    def _select_template_in_list(self, name):
+        for i in range(self.template_list.size()):
+            text = self.template_list.get(i)
+            if text.split(" — ")[0] == name:
+                self.template_list.selection_clear(0, tk.END)
+                self.template_list.selection_set(i)
+                self.template_list.see(i)
+                return
+
+    def _save_last_choice(self):
+        try:
+            save_json(LAST_APPLIANCE_FILE, {
+                "name": LAST_APPLIANCE_CHOICE["name"],
+                "template": LAST_APPLIANCE_CHOICE["template"],
+            })
+        except Exception:
+            pass
 
     def on_template_select(self, event):
         sel = self.template_list.curselection()
@@ -834,6 +885,9 @@ class ApplianceDialog(tk.Toplevel):
         self.phases_var.set(str(t["phases"]))
         self.usage_var.set(usage_to_ru(t["usage"]))
         self.season_var.set(season_to_ru(t.get("season", "all")))
+        LAST_APPLIANCE_CHOICE["name"] = name
+        LAST_APPLIANCE_CHOICE["template"] = dict(t)
+        self._save_last_choice()
 
     def on_ok(self):
         try:
@@ -862,6 +916,15 @@ class ApplianceDialog(tk.Toplevel):
                 "usage": usage, "phase_connections": list(conn),
                 "season": season,
             }
+            LAST_APPLIANCE_CHOICE["name"] = name
+            if name in self.templates:
+                LAST_APPLIANCE_CHOICE["template"] = dict(self.templates[name])
+            else:
+                LAST_APPLIANCE_CHOICE["template"] = {
+                    "power_kw": power, "phases": phases,
+                    "usage": usage, "season": season,
+                }
+            self._save_last_choice()
             self.disabled_result = disabled
             self.destroy()
         except Exception as e:
@@ -1049,8 +1112,9 @@ class HomePlanTab(tk.Frame):
         self.undo_stack = []
         self.wire_points = []
         self.wire_mode_active = False
-        self.wire_type = "L1"          # тип кабеля в режиме рисования
-        self.wire_width = DEFAULT_WIRE_WIDTH  # толщина кабеля
+        self.wire_type = "L1"
+        self.wire_width = DEFAULT_WIRE_WIDTH
+        self.elem_scale = 1.0
         self.hover = None
         self.scale = 1.0
         self._last_canvas_w = 0
@@ -1095,7 +1159,13 @@ class HomePlanTab(tk.Frame):
                    command=self.update_diameter).pack(side=tk.LEFT)
         self.diameter_var.trace_add("write", lambda *a: self.update_diameter())
 
-        # --- тип и толщина кабеля (как в щите) ---
+        tk.Label(toolbar, text="  Размер эл.:", bg="#ECEFF1").pack(side=tk.LEFT, padx=5)
+        self.elem_scale_var = tk.DoubleVar(value=self.elem_scale)
+        tk.Spinbox(toolbar, from_=0.3, to=3.0, increment=0.1, width=4,
+                   textvariable=self.elem_scale_var,
+                   command=self.on_elem_scale_change).pack(side=tk.LEFT)
+        self.elem_scale_var.trace_add("write", lambda *a: self.on_elem_scale_change())
+
         tk.Label(toolbar, text="  Кабель:", bg="#ECEFF1").pack(side=tk.LEFT, padx=5)
         self.wire_type_var = tk.StringVar(value=self.wire_type)
         for key in ["L1", "L2", "L3", "N", "PE"]:
@@ -1174,6 +1244,13 @@ class HomePlanTab(tk.Frame):
         except Exception:
             pass
 
+    def on_elem_scale_change(self):
+        try:
+            self.elem_scale = max(0.3, min(3.0, float(self.elem_scale_var.get())))
+        except Exception:
+            pass
+        self._draw_all()
+
     def on_zoom_wheel(self, event):
         factor = ZOOM_STEP if event.delta > 0 else 1 / ZOOM_STEP
         self.zoom_at(event.x, event.y, factor)
@@ -1194,6 +1271,9 @@ class HomePlanTab(tk.Frame):
 
     def S(self, v):
         return v * self.scale
+
+    def SE(self, v):
+        return v * self.elem_scale
 
     def set_mode(self, mode):
         if self.mode == "draw_wire" and mode != "draw_wire":
@@ -1284,8 +1364,6 @@ class HomePlanTab(tk.Frame):
 
     # ---------- распайки ----------
     def _junction_related_outputs(self, jb_idx):
-        """Возвращает множество output_num, связанных с распайкой (напрямую
-        по проводам, у которых junction_idx == jb_idx)."""
         result = set()
         for wire in self.plan.get("wires", []):
             if wire.get("junction_idx") == jb_idx:
@@ -1353,33 +1431,28 @@ class HomePlanTab(tk.Frame):
         for i, op in enumerate(self.plan.get("output_points", [])):
             self._draw_output_point(i, op)
 
-        # предпросмотр текущего провода (ортогональный)
-        if self.wire_mode_active and len(self.wire_points) >= 1:
-            pts = list(self.wire_points)
-            ortho = orthogonalize(pts)
-            if len(ortho) >= 2:
-                flat = []
-                for p in ortho:
-                    flat.extend((self.S(p[0]), self.S(p[1])))
-                color = CABLE_TYPES.get(self.wire_type, {}).get("color", WIRE_COLOR)
-                self.canvas.create_line(*flat, fill=color,
-                                         width=max(1, int(self.S(self.wire_width))),
-                                         capstyle=tk.ROUND, joinstyle=tk.MITER)
+        # предпросмотр текущего провода
+        if self.wire_mode_active and len(self.wire_points) >= 2:
+            flat = []
+            for p in self.wire_points:
+                flat.extend((self.S(p[0]), self.S(p[1])))
+            color = CABLE_TYPES.get(self.wire_type, {}).get("color", WIRE_COLOR)
+            self.canvas.create_line(*flat, fill=color,
+                                     width=max(1, int(self.S(self.wire_width))),
+                                     capstyle=tk.ROUND, joinstyle=tk.MITER)
         for p in self.wire_points:
             x, y = self.S(p[0]), self.S(p[1])
-            r = max(2, int(self.S(4)))
+            r = max(2, int(self.SE(4)))
             self.canvas.create_oval(x - r, y - r, x + r, y + r,
                                      fill="#FF6F00", outline="")
 
         if self.wall_start is not None:
             x, y = self.S(self.wall_start[0]), self.S(self.wall_start[1])
-            r = max(2, int(self.S(4)))
+            r = max(2, int(self.SE(4)))
             self.canvas.create_oval(x - r, y - r, x + r, y + r,
                                      outline="#B71C1C", width=2)
 
     def _wire_color(self, wire):
-        """Определяет цвет провода: если есть output_num — цвет этого выхода,
-        при обесточенном — светлее; если нет — базовый цвет по типу."""
         base_color = CABLE_TYPES.get(wire.get("type", "L1"), {}).get("color", WIRE_COLOR)
         num = wire.get("output_num")
         if num is not None:
@@ -1415,7 +1488,7 @@ class HomePlanTab(tk.Frame):
 
     def _draw_socket(self, idx, sock):
         x, y = self.S(sock["x"]), self.S(sock["y"])
-        r = self.S(sock.get("diameter", 12)) / 2
+        r = self.SE(sock.get("diameter", 12)) / 2
         a = sock.get("appliance")
         active = _socket_active(sock, self.plan)
         socket_junction_idx = self._find_socket_junction(sock)
@@ -1433,16 +1506,16 @@ class HomePlanTab(tk.Frame):
         if disabled:
             self.canvas.create_line(x - r * 0.7, y - r * 0.7,
                                      x + r * 0.7, y + r * 0.7,
-                                     fill="#B71C1C", width=max(1, int(self.S(2))))
+                                     fill="#B71C1C", width=max(1, int(self.SE(2))))
             self.canvas.create_line(x - r * 0.7, y + r * 0.7,
                                      x + r * 0.7, y - r * 0.7,
-                                     fill="#B71C1C", width=max(1, int(self.S(2))))
+                                     fill="#B71C1C", width=max(1, int(self.SE(2))))
         if a:
-            self.canvas.create_text(x, y - r - self.S(6), text=a["name"][:3],
-                                     font=("Arial", max(6, int(self.S(8)))),
+            self.canvas.create_text(x, y - r - self.SE(6), text=a["name"][:3],
+                                     font=("Arial", max(6, int(self.SE(8)))),
                                      fill="#000")
         if self.selected_socket == idx:
-            pad = self.S(4)
+            pad = self.SE(4)
             self.canvas.create_oval(x - r - pad, y - r - pad,
                                      x + r + pad, y + r + pad,
                                      outline="#FF6F00", width=2)
@@ -1457,7 +1530,7 @@ class HomePlanTab(tk.Frame):
 
     def _draw_switch(self, idx, sw):
         x, y = self.S(sw["x"]), self.S(sw["y"])
-        h = self.S(sw.get("diameter", 12)) / 2
+        h = self.SE(sw.get("diameter", 12)) / 2
         state = sw.get("state", False)
         junction_idx = None
         for wire in self.plan.get("wires", []):
@@ -1469,38 +1542,38 @@ class HomePlanTab(tk.Frame):
                 state = False
         color = SWITCH_ON_COLOR if state else SWITCH_OFF_COLOR
         if state:
-            pad = self.S(4)
+            pad = self.SE(4)
             self.canvas.create_rectangle(x - h - pad, y - h - pad,
                                            x + h + pad, y + h + pad,
                                            fill="#FFF9C4", outline="")
         self.canvas.create_rectangle(x - h, y - h, x + h, y + h,
                                        fill=color, outline="#263238", width=2)
-        self.canvas.create_text(x, y - h - self.S(8),
+        self.canvas.create_text(x, y - h - self.SE(8),
                                  text="ВКЛ" if state else "ВЫКЛ",
-                                 font=("Arial", max(6, int(self.S(8))), "bold"),
+                                 font=("Arial", max(6, int(self.SE(8))), "bold"),
                                  fill="#000")
         if self.selected_switch == idx:
-            pad = self.S(4)
+            pad = self.SE(4)
             self.canvas.create_rectangle(x - h - pad, y - h - pad,
                                            x + h + pad, y + h + pad,
                                            outline="#FF6F00", width=2)
 
     def _draw_junction(self, idx, jb):
         x, y = self.S(jb["x"]), self.S(jb["y"])
-        h = self.S(jb.get("diameter", 24)) / 2
+        h = self.SE(jb.get("diameter", 24)) / 2
         color = self._junction_color(idx)
         self.canvas.create_rectangle(x - h, y - h, x + h, y + h,
                                        fill=color, outline="#37474F", width=2)
         line_color = "white" if color != JUNCTION_OFF_COLOR else "#37474F"
         self.canvas.create_line(x - h * 0.5, y - h * 0.5, x + h * 0.5, y + h * 0.5,
-                                 fill=line_color, width=max(1, int(self.S(2))))
+                                 fill=line_color, width=max(1, int(self.SE(2))))
         self.canvas.create_line(x - h * 0.5, y + h * 0.5, x + h * 0.5, y - h * 0.5,
-                                 fill=line_color, width=max(1, int(self.S(2))))
-        self.canvas.create_text(x, y - h - self.S(8), text="Распайка",
-                                 font=("Arial", max(6, int(self.S(7))), "bold"),
+                                 fill=line_color, width=max(1, int(self.SE(2))))
+        self.canvas.create_text(x, y - h - self.SE(8), text="Распайка",
+                                 font=("Arial", max(6, int(self.SE(7))), "bold"),
                                  fill="#37474F")
         if self.selected_junction == idx:
-            pad = self.S(4)
+            pad = self.SE(4)
             self.canvas.create_rectangle(x - h - pad, y - h - pad,
                                            x + h + pad, y + h + pad,
                                            outline="#FF6F00", width=2)
@@ -1517,14 +1590,14 @@ class HomePlanTab(tk.Frame):
         else:
             color = "#888888"
         size = op.get("size", 24)
-        h = self.S(size) / 2
+        h = self.SE(size) / 2
         self.canvas.create_rectangle(x - h, y - h, x + h, y + h,
                                        fill=color, outline="#263238", width=2)
         self.canvas.create_text(x, y, text=str(num) if num is not None else "?",
-                                 font=("Arial", max(8, int(self.S(11))), "bold"),
+                                 font=("Arial", max(8, int(self.SE(11))), "bold"),
                                  fill="white")
         if self.selected_output == idx:
-            pad = self.S(4)
+            pad = self.SE(4)
             self.canvas.create_rectangle(x - h - pad, y - h - pad,
                                            x + h + pad, y + h + pad,
                                            outline="#FF6F00", width=2)
@@ -1620,7 +1693,6 @@ class HomePlanTab(tk.Frame):
 
         if self.mode == "place_switch":
             self.push_undo()
-            # авто-выравнивание с ближайшим выключателем по осям
             ax, ay = x, y
             for sw in self.plan.get("switches", []):
                 if abs(sw["x"] - x) <= SWITCH_ALIGN_TOLERANCE and \
@@ -1740,7 +1812,18 @@ class HomePlanTab(tk.Frame):
 
     # ---------- завершение рисования провода ----------
     def _find_start_ref(self, pt):
-        """Ищет, к чему привязать начало провода."""
+        """Возвращает (sw_idx, op_num, jb_idx).
+        Приоритет: распайка → выключатель → выход."""
+        jb_idx = None
+        best = GRAB_TOLERANCE_PLAN
+        for i, jb in enumerate(self.plan.get("junction_boxes", [])):
+            d = math.hypot(pt[0] - jb["x"], pt[1] - jb["y"])
+            if d < best:
+                best = d
+                jb_idx = i
+        if jb_idx is not None:
+            return None, None, jb_idx
+
         sw_idx = None
         best = GRAB_TOLERANCE_PLAN
         for i, sw in enumerate(self.plan.get("switches", [])):
@@ -1748,6 +1831,7 @@ class HomePlanTab(tk.Frame):
             if d < best:
                 best = d
                 sw_idx = i
+
         op_num = None
         best = GRAB_TOLERANCE_PLAN
         for op in self.plan.get("output_points", []):
@@ -1755,6 +1839,12 @@ class HomePlanTab(tk.Frame):
             if d < best:
                 best = d
                 op_num = op.get("num")
+
+        return sw_idx, op_num, None
+
+    def _find_end_ref(self, pt):
+        """Возвращает (sock_ref, jb_idx, sw_idx).
+        Приоритет: распайка → розетка → выключатель."""
         jb_idx = None
         best = GRAB_TOLERANCE_PLAN
         for i, jb in enumerate(self.plan.get("junction_boxes", [])):
@@ -1762,10 +1852,9 @@ class HomePlanTab(tk.Frame):
             if d < best:
                 best = d
                 jb_idx = i
-        return sw_idx, op_num, jb_idx
+        if jb_idx is not None:
+            return None, jb_idx, None
 
-    def _find_end_ref(self, pt):
-        """Ищет, к чему привязать конец провода (розетка или распайка)."""
         sock_ref = None
         best = GRAB_TOLERANCE_PLAN
         for sock in self.plan["sockets"]:
@@ -1773,13 +1862,7 @@ class HomePlanTab(tk.Frame):
             if d < best:
                 best = d
                 sock_ref = sock
-        jb_idx = None
-        best = GRAB_TOLERANCE_PLAN
-        for i, jb in enumerate(self.plan.get("junction_boxes", [])):
-            d = math.hypot(pt[0] - jb["x"], pt[1] - jb["y"])
-            if d < best:
-                best = d
-                jb_idx = i
+
         sw_idx = None
         best = GRAB_TOLERANCE_PLAN
         for i, sw in enumerate(self.plan.get("switches", [])):
@@ -1787,15 +1870,12 @@ class HomePlanTab(tk.Frame):
             if d < best:
                 best = d
                 sw_idx = i
-        return sock_ref, jb_idx, sw_idx
+
+        return sock_ref, None, sw_idx
 
     def _inherit_output_num(self, sw_idx, jb_idx, op_num, socket_ref, socket_jb_idx):
-        """Определяет output_num для нового провода, наследуя от существующих
-        связей (одинаковый цвет всей цепочки от ввода до розетки)."""
         if op_num is not None:
             return op_num
-        # если провод начинается от выключателя или распайки, которые уже
-        # связаны с каким-то output_num — наследуем его
         for wire in self.plan.get("wires", []):
             num = wire.get("output_num")
             if num is None:
@@ -1819,26 +1899,18 @@ class HomePlanTab(tk.Frame):
         raw_start = self.wire_points[0]
         raw_end = self.wire_points[-1]
 
-        # начало: выключатель / выход / распайка
-        sw_idx, op_num, jb_start_idx = self._find_start_ref(raw_start)
-        # конец: розетка / распайка / выключатель
-        sock_ref, jb_end_idx, sw_end_idx = self._find_end_ref(raw_end)
+        sw_idx_start, op_num, jb_start_idx = self._find_start_ref(raw_start)
+        sock_ref, jb_end_idx, sw_idx_end = self._find_end_ref(raw_end)
 
-        # распайка может быть как в начале, так и в конце
-        jb_idx = jb_end_idx if jb_end_idx is not None else jb_start_idx
+        jb_idx = jb_start_idx if jb_start_idx is not None else jb_end_idx
+        sw_idx = sw_idx_start if sw_idx_start is not None else sw_idx_end
 
-        # определяем номер выхода (цвет всей цепочки)
         socket_jb_idx = None
         if sock_ref is not None:
             socket_jb_idx = self._find_socket_junction(sock_ref)
         inherited = self._inherit_output_num(sw_idx, jb_idx, op_num,
                                               sock_ref, socket_jb_idx)
 
-        # выключатель может быть и в начале, и в конце
-        if sw_idx is None and sw_end_idx is not None:
-            sw_idx = sw_end_idx
-
-        # ортогонализация
         ortho = orthogonalize(self.wire_points)
         if sock_ref is not None:
             ortho[-1] = (sock_ref["x"], sock_ref["y"])
@@ -1849,7 +1921,6 @@ class HomePlanTab(tk.Frame):
                     break
         if jb_idx is not None:
             jb = self.plan["junction_boxes"][jb_idx]
-            # привязываем к распайке (если она в начале или в конце)
             if math.hypot(ortho[0][0] - jb["x"], ortho[0][1] - jb["y"]) < GRAB_TOLERANCE_PLAN:
                 ortho[0] = (jb["x"], jb["y"])
             if math.hypot(ortho[-1][0] - jb["x"], ortho[-1][1] - jb["y"]) < GRAB_TOLERANCE_PLAN:
@@ -1870,55 +1941,165 @@ class HomePlanTab(tk.Frame):
             "switch_idx": sw_idx,
             "socket_ref": sock_ref,
         }
-        if op_num is not None:
-            wire["output_num"] = op_num
-        elif inherited is not None:
+        if inherited is not None:
             wire["output_num"] = inherited
         if jb_idx is not None:
             wire["junction_idx"] = jb_idx
 
         self.plan.setdefault("wires", []).append(wire)
 
-        # ---------- распространение output_num по всей ветке ----------
-        self._propagate_output_num(wire)
+        # --- ключевое: пересчитываем цвет по всей цепочке распаек ---
+        self._recompute_all_output_nums()
 
         self.wire_points = []
         self._draw_all()
         self.right_panel.refresh()
 
-    def _propagate_output_num(self, new_wire):
-        """Если у нового провода есть output_num, распространяем его на все
-        провода, связанные через те же распайки/выключатели/розетки."""
-        num = new_wire.get("output_num")
-        if num is None:
-            return
+    # ============================================================
+    # ГЛАВНАЯ ФУНКЦИЯ РАСПРОСТРАНЕНИЯ ЦВЕТА ЧЕРЕЗ РАСПАЙКИ
+    # ============================================================
+    def _recompute_all_output_nums(self):
+        """Расчёт цветов проводов и узлов.
+
+           Ключевое правило:
+           - Провод, у которого ОДИН из концов — output_point, ВСЕГДА имеет
+             цвет этого вывода.
+           - Провод, идущий от распайки/выключателя/розетки, наследует цвет
+             через цепочку проводов.
+           - Узел (распайка/выключатель/розетка) фиксирует первый полученный
+             цвет и больше не перекрашивается.
+
+           ВАЖНО: все функции поиска возвращают БЛИЖАЙШИЙ узел, а не первый
+           попавшийся — иначе при близко стоящих выводах провод прилипает
+           не к своему выводу."""
+
+        wires = self.plan.get("wires", [])
+
+        # ---- сброс ----
+        for w in wires:
+            w.pop("output_num", None)
+        for jb in self.plan.get("junction_boxes", []):
+            jb.pop("output_num", None)
+        for sw in self.plan.get("switches", []):
+            sw.pop("output_num", None)
+        for sock in self.plan["sockets"]:
+            sock.pop("output_num", None)
+
+        def _near(a, b):
+            return math.hypot(a[0] - b[0], a[1] - b[1]) < GRAB_TOLERANCE_PLAN
+
+        def _output_at(pt):
+            """Ближайший output_point в пределах GRAB_TOLERANCE_PLAN."""
+            best_d = GRAB_TOLERANCE_PLAN
+            best_op = None
+            for op in self.plan.get("output_points", []):
+                d = math.hypot(pt[0] - op["x"], pt[1] - op["y"])
+                if d < best_d:
+                    best_d = d
+                    best_op = op
+            return best_op
+
+        def _jb_at(pt):
+            """Ближайшая распайка."""
+            best_d = GRAB_TOLERANCE_PLAN
+            best_idx = None
+            for i, jb in enumerate(self.plan.get("junction_boxes", [])):
+                d = math.hypot(pt[0] - jb["x"], pt[1] - jb["y"])
+                if d < best_d:
+                    best_d = d
+                    best_idx = i
+            return best_idx
+
+        def _sw_at(pt):
+            """Ближайший выключатель."""
+            best_d = GRAB_TOLERANCE_PLAN
+            best_idx = None
+            for i, sw in enumerate(self.plan.get("switches", [])):
+                d = math.hypot(pt[0] - sw["x"], pt[1] - sw["y"])
+                if d < best_d:
+                    best_d = d
+                    best_idx = i
+            return best_idx
+
+        def _sock_at(pt):
+            """Ближайшая розетка."""
+            best_d = GRAB_TOLERANCE_PLAN
+            best_ref = None
+            for sock in self.plan["sockets"]:
+                d = math.hypot(pt[0] - sock["x"], pt[1] - sock["y"])
+                if d < best_d:
+                    best_d = d
+                    best_ref = sock
+            return best_ref
+
+        def _endpoints(w):
+            pts = w.get("points", [])
+            if len(pts) < 2:
+                return None
+            return (pts[0], pts[-1])
+
+        # ---------- ШАГ 1: провода-источники ----------
+        for w in wires:
+            ep = _endpoints(w)
+            if ep is None:
+                continue
+            op_a = _output_at(ep[0])
+            op_b = _output_at(ep[1])
+            op = op_a if op_a is not None else op_b
+            if op is not None:
+                w["output_num"] = op.get("num")
+
+        # ---------- ШАГ 2: наследование цвета ----------
         changed = True
         while changed:
             changed = False
-            jb_set = set()
-            sw_set = set()
-            sock_set = set()
-            # собираем все связанные элементы, где уже есть этот num
-            for w in self.plan.get("wires", []):
-                if w.get("output_num") == num:
-                    if w.get("junction_idx") is not None:
-                        jb_set.add(w["junction_idx"])
-                    if w.get("switch_idx") is not None:
-                        sw_set.add(w["switch_idx"])
-                    if w.get("socket_ref") is not None:
-                        sock_set.add(id(w["socket_ref"]))
-            for w in self.plan.get("wires", []):
-                if w.get("output_num") == num:
+            for w in wires:
+                if w.get("output_num") is not None:
                     continue
-                if w.get("junction_idx") is not None and w["junction_idx"] in jb_set:
-                    w["output_num"] = num
-                    changed = True
-                elif w.get("switch_idx") is not None and w["switch_idx"] in sw_set:
-                    w["output_num"] = num
-                    changed = True
-                elif w.get("socket_ref") is not None and id(w["socket_ref"]) in sock_set:
-                    w["output_num"] = num
-                    changed = True
+                ep = _endpoints(w)
+                if ep is None:
+                    continue
+                for other in wires:
+                    if other is w:
+                        continue
+                    num = other.get("output_num")
+                    if num is None:
+                        continue
+                    op_ep = _endpoints(other)
+                    if op_ep is None:
+                        continue
+                    linked = (
+                        _near(ep[0], op_ep[0]) or _near(ep[0], op_ep[1]) or
+                        _near(ep[1], op_ep[0]) or _near(ep[1], op_ep[1])
+                    )
+                    if linked:
+                        w["output_num"] = num
+                        changed = True
+                        break
+
+        # ---------- ШАГ 3: цвета узлов ----------
+        for w in wires:
+            num = w.get("output_num")
+            if num is None:
+                continue
+            ep = _endpoints(w)
+            if ep is None:
+                continue
+            for pt in ep:
+                jb_i = _jb_at(pt)
+                if jb_i is not None:
+                    jb = self.plan["junction_boxes"][jb_i]
+                    if jb.get("output_num") is None:
+                        jb["output_num"] = num
+                sw_i = _sw_at(pt)
+                if sw_i is not None:
+                    sw = self.plan["switches"][sw_i]
+                    if sw.get("output_num") is None:
+                        sw["output_num"] = num
+                sock = _sock_at(pt)
+                if sock is not None and sock.get("output_num") is None:
+                    sock["output_num"] = num
+                    
 
     def on_drag(self, event):
         if not self.dragging:
@@ -1941,6 +2122,11 @@ class HomePlanTab(tk.Frame):
         self._draw_all()
 
     def on_release(self, event):
+        if self.dragging:
+            # если перетаскивали распайку или выход — пересчитываем цвета
+            if self.selected_junction is not None or self.selected_output is not None:
+                self._recompute_all_output_nums()
+                self._draw_all()
         self.dragging = False
 
     def on_right_click(self, event):
@@ -2013,6 +2199,7 @@ class HomePlanTab(tk.Frame):
                 w["junction_idx"] -= 1
         del self.plan["junction_boxes"][idx]
         self.selected_junction = None
+        self._recompute_all_output_nums()
         self._draw_all()
 
     def edit_appliance(self, idx):
@@ -2036,6 +2223,7 @@ class HomePlanTab(tk.Frame):
                                 if w.get("socket_ref") is not sock]
         del self.plan["sockets"][idx]
         self.selected_socket = None
+        self._recompute_all_output_nums()
         self._draw_all()
         self.right_panel.refresh()
 
@@ -2048,6 +2236,7 @@ class HomePlanTab(tk.Frame):
                 w["switch_idx"] -= 1
         del self.plan["switches"][idx]
         self.selected_switch = None
+        self._recompute_all_output_nums()
         self._draw_all()
         self.right_panel.refresh()
 
@@ -2055,6 +2244,7 @@ class HomePlanTab(tk.Frame):
         self.push_undo()
         del self.plan["wires"][idx]
         self.selected_wire = None
+        self._recompute_all_output_nums()
         self._draw_all()
         self.right_panel.refresh()
 
@@ -2246,6 +2436,7 @@ class HomePlanTab(tk.Frame):
             wire.setdefault("width", DEFAULT_WIRE_WIDTH)
         self.current_file = path
         self._load_photo()
+        self._recompute_all_output_nums()
         self._draw_all()
         self.right_panel.refresh()
         self.right_panel.refresh_outputs_list()
@@ -2265,6 +2456,8 @@ class HomePlanTab(tk.Frame):
         except Exception as e:
             messagebox.showerror("Ошибка", str(e))
             return
+        self.plan["room_width"] = self.photo_size[0]
+        self.plan["room_height"] = self.photo_size[1]
         self.plan["photo_path"] = path
         self._draw_all()
 
@@ -2538,6 +2731,8 @@ class BreakerPickDialog(tk.Toplevel):
                   width=10).pack(side=tk.LEFT, padx=5)
 
         self.refresh()
+        self._restore_selection()
+
         self.transient(parent)
         self.wait_visibility()
         self.grab_set()
@@ -2548,6 +2743,7 @@ class BreakerPickDialog(tk.Toplevel):
             text = self.tree.item(item, "text")
             is_open = self.tree.item(item, "open")
             DIALOG_STATE["group_open"][text] = is_open
+        self._persist_state()
 
     def _save_filters(self):
         DIALOG_STATE["poles"] = self.poles_var.get()
@@ -2556,6 +2752,25 @@ class BreakerPickDialog(tk.Toplevel):
         DIALOG_STATE["group"] = self.group_var.get()
         DIALOG_STATE["search"] = self.search_var.get()
 
+    def _persist_state(self):
+        try:
+            save_json(BREAKER_PICK_STATE_FILE, DIALOG_STATE)
+        except Exception:
+            pass
+
+    def _restore_selection(self):
+        name = DIALOG_STATE.get("selected_name", "")
+        if not name:
+            return
+        for group_item in self.tree.get_children():
+            for child in self.tree.get_children(group_item):
+                if self.tree.item(child, "text") == name:
+                    self.tree.selection_set(child)
+                    self.tree.see(child)
+                    self.tree.item(group_item, open=True)
+                    DIALOG_STATE["group_open"][self.tree.item(group_item, "text")] = True
+                    return
+
     def reset_filters(self):
         self.poles_var.set("")
         self.nominal_var.set("")
@@ -2563,6 +2778,7 @@ class BreakerPickDialog(tk.Toplevel):
         self.group_var.set("Все")
         self.search_var.set("")
         self._save_filters()
+        self._persist_state()
 
     def refresh(self):
         self._save_open_state()
@@ -2616,6 +2832,8 @@ class BreakerPickDialog(tk.Toplevel):
         name = self.tree.item(item, "text")
         if name in self.templates:
             self._save_filters()
+            DIALOG_STATE["selected_name"] = name
+            self._persist_state()
             self.result = dict(self.templates[name])
             self.result["name"] = name
             self.destroy()
@@ -3853,6 +4071,13 @@ class PanelTab(tk.Frame):
             return list(range(poles - 1))
         return list(range(poles))
 
+    def _pick_output_color(self, existing):
+        used_colors = {o.get("color") for o in existing}
+        free_colors = [c for c in RANDOM_OUTPUT_COLORS if c not in used_colors]
+        if free_colors:
+            return random.choice(free_colors)
+        return random.choice(RANDOM_OUTPUT_COLORS)
+
     def add_output_at(self, x, y):
         br_idx = self._find_breaker(x, y)
         if br_idx is None:
@@ -3885,7 +4110,7 @@ class PanelTab(tk.Frame):
                 messagebox.showerror("Ошибка", "Этот полюс уже занят.")
                 return
         num = self._next_free_number()
-        color = random.choice(RANDOM_OUTPUT_COLORS)
+        color = self._pick_output_color(existing)
         self.push_undo()
         existing.append({
             "num": num,
@@ -3924,7 +4149,7 @@ class PanelTab(tk.Frame):
                 messagebox.showerror("Ошибка", "Этот полюс уже занят.")
                 return
         num = self._next_free_number()
-        color = random.choice(RANDOM_OUTPUT_COLORS)
+        color = self._pick_output_color(existing)
         self.push_undo()
         existing.append({
             "num": num,
@@ -4338,6 +4563,20 @@ class PowerPlanApp:
         self.templates = load_json(TEMPLATES_FILE, DEFAULT_TEMPLATES.copy())
         self.phase_colors = load_json(PHASE_COLORS_FILE, dict(DEFAULT_PHASE_COLORS))
         self.settings = load_json(SETTINGS_FILE, dict(DEFAULT_SETTINGS))
+
+        saved_last = load_json(LAST_APPLIANCE_FILE, None)
+        if saved_last and saved_last.get("name"):
+            LAST_APPLIANCE_CHOICE["name"] = saved_last.get("name")
+            LAST_APPLIANCE_CHOICE["template"] = saved_last.get("template")
+
+        saved_pick = load_json(BREAKER_PICK_STATE_FILE, None)
+        if saved_pick and isinstance(saved_pick, dict):
+            for k in ("poles", "nominal", "leak", "group", "search",
+                       "selected_name"):
+                if k in saved_pick:
+                    DIALOG_STATE[k] = saved_pick[k]
+            if "group_open" in saved_pick and isinstance(saved_pick["group_open"], dict):
+                DIALOG_STATE["group_open"] = saved_pick["group_open"]
 
         for k, v in DEFAULT_PHASE_COLORS.items():
             if k not in self.phase_colors:

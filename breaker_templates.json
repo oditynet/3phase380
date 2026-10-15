@@ -1,0 +1,1384 @@
+{
+  "Автомат 1P B6": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 6,
+    "leak": null,
+    "char": "B",
+    "desc": "B6",
+    "group": "auto"
+  },
+  "Автомат 1P B10": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 10,
+    "leak": null,
+    "char": "B",
+    "desc": "B10",
+    "group": "auto"
+  },
+  "Автомат 1P B13": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 13,
+    "leak": null,
+    "char": "B",
+    "desc": "B13",
+    "group": "auto"
+  },
+  "Автомат 1P B16": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 16,
+    "leak": null,
+    "char": "B",
+    "desc": "B16",
+    "group": "auto"
+  },
+  "Автомат 1P B20": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 20,
+    "leak": null,
+    "char": "B",
+    "desc": "B20",
+    "group": "auto"
+  },
+  "Автомат 1P B25": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 25,
+    "leak": null,
+    "char": "B",
+    "desc": "B25",
+    "group": "auto"
+  },
+  "Автомат 1P B32": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 32,
+    "leak": null,
+    "char": "B",
+    "desc": "B32",
+    "group": "auto"
+  },
+  "Автомат 1P B40": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 40,
+    "leak": null,
+    "char": "B",
+    "desc": "B40",
+    "group": "auto"
+  },
+  "Автомат 1P B50": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 50,
+    "leak": null,
+    "char": "B",
+    "desc": "B50",
+    "group": "auto"
+  },
+  "Автомат 1P B63": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": "B",
+    "desc": "B63",
+    "group": "auto"
+  },
+  "Автомат 1P C6": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 6,
+    "leak": null,
+    "char": "C",
+    "desc": "C6",
+    "group": "auto"
+  },
+  "Автомат 1P C10": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 10,
+    "leak": null,
+    "char": "C",
+    "desc": "C10",
+    "group": "auto"
+  },
+  "Автомат 1P C13": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 13,
+    "leak": null,
+    "char": "C",
+    "desc": "C13",
+    "group": "auto"
+  },
+  "Автомат 1P C16": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 16,
+    "leak": null,
+    "char": "C",
+    "desc": "C16",
+    "group": "auto"
+  },
+  "Автомат 1P C20": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 20,
+    "leak": null,
+    "char": "C",
+    "desc": "C20",
+    "group": "auto"
+  },
+  "Автомат 1P C25": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 25,
+    "leak": null,
+    "char": "C",
+    "desc": "C25",
+    "group": "auto"
+  },
+  "Автомат 1P C32": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 32,
+    "leak": null,
+    "char": "C",
+    "desc": "C32",
+    "group": "auto"
+  },
+  "Автомат 1P C40": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 40,
+    "leak": null,
+    "char": "C",
+    "desc": "C40",
+    "group": "auto"
+  },
+  "Автомат 1P C50": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 50,
+    "leak": null,
+    "char": "C",
+    "desc": "C50",
+    "group": "auto"
+  },
+  "Автомат 1P C63": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": "C",
+    "desc": "C63",
+    "group": "auto"
+  },
+  "Автомат 1P D6": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 6,
+    "leak": null,
+    "char": "D",
+    "desc": "D6",
+    "group": "auto"
+  },
+  "Автомат 1P D10": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 10,
+    "leak": null,
+    "char": "D",
+    "desc": "D10",
+    "group": "auto"
+  },
+  "Автомат 1P D13": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 13,
+    "leak": null,
+    "char": "D",
+    "desc": "D13",
+    "group": "auto"
+  },
+  "Автомат 1P D16": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 16,
+    "leak": null,
+    "char": "D",
+    "desc": "D16",
+    "group": "auto"
+  },
+  "Автомат 1P D20": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 20,
+    "leak": null,
+    "char": "D",
+    "desc": "D20",
+    "group": "auto"
+  },
+  "Автомат 1P D25": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 25,
+    "leak": null,
+    "char": "D",
+    "desc": "D25",
+    "group": "auto"
+  },
+  "Автомат 1P D32": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 32,
+    "leak": null,
+    "char": "D",
+    "desc": "D32",
+    "group": "auto"
+  },
+  "Автомат 1P D40": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 40,
+    "leak": null,
+    "char": "D",
+    "desc": "D40",
+    "group": "auto"
+  },
+  "Автомат 1P D50": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 50,
+    "leak": null,
+    "char": "D",
+    "desc": "D50",
+    "group": "auto"
+  },
+  "Автомат 1P D63": {
+    "type": "auto",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": "D",
+    "desc": "D63",
+    "group": "auto"
+  },
+  "Автомат 2P C16": {
+    "type": "auto",
+    "poles": 2,
+    "nominal": 16,
+    "leak": null,
+    "char": "C",
+    "desc": "2P C16",
+    "group": "auto"
+  },
+  "Автомат 2P C25": {
+    "type": "auto",
+    "poles": 2,
+    "nominal": 25,
+    "leak": null,
+    "char": "C",
+    "desc": "2P C25",
+    "group": "auto"
+  },
+  "Автомат 2P C32": {
+    "type": "auto",
+    "poles": 2,
+    "nominal": 32,
+    "leak": null,
+    "char": "C",
+    "desc": "2P C32",
+    "group": "auto"
+  },
+  "Автомат 2P C40": {
+    "type": "auto",
+    "poles": 2,
+    "nominal": 40,
+    "leak": null,
+    "char": "C",
+    "desc": "2P C40",
+    "group": "auto"
+  },
+  "Автомат 2P C63": {
+    "type": "auto",
+    "poles": 2,
+    "nominal": 63,
+    "leak": null,
+    "char": "C",
+    "desc": "2P C63",
+    "group": "auto"
+  },
+  "Автомат 3P C16": {
+    "type": "auto",
+    "poles": 3,
+    "nominal": 16,
+    "leak": null,
+    "char": "C",
+    "desc": "3P C16",
+    "group": "auto"
+  },
+  "Автомат 3P C25": {
+    "type": "auto",
+    "poles": 3,
+    "nominal": 25,
+    "leak": null,
+    "char": "C",
+    "desc": "3P C25",
+    "group": "auto"
+  },
+  "Автомат 3P C32": {
+    "type": "auto",
+    "poles": 3,
+    "nominal": 32,
+    "leak": null,
+    "char": "C",
+    "desc": "3P C32",
+    "group": "auto"
+  },
+  "Автомат 3P C40": {
+    "type": "auto",
+    "poles": 3,
+    "nominal": 40,
+    "leak": null,
+    "char": "C",
+    "desc": "3P C40",
+    "group": "auto"
+  },
+  "Автомат 3P C50": {
+    "type": "auto",
+    "poles": 3,
+    "nominal": 50,
+    "leak": null,
+    "char": "C",
+    "desc": "3P C50",
+    "group": "auto"
+  },
+  "Автомат 3P C63": {
+    "type": "auto",
+    "poles": 3,
+    "nominal": 63,
+    "leak": null,
+    "char": "C",
+    "desc": "3P C63",
+    "group": "auto"
+  },
+  "Автомат 4P C25": {
+    "type": "auto",
+    "poles": 4,
+    "nominal": 25,
+    "leak": null,
+    "char": "C",
+    "desc": "4P C25",
+    "group": "auto"
+  },
+  "Автомат 4P C32": {
+    "type": "auto",
+    "poles": 4,
+    "nominal": 32,
+    "leak": null,
+    "char": "C",
+    "desc": "4P C32",
+    "group": "auto"
+  },
+  "Автомат 4P C40": {
+    "type": "auto",
+    "poles": 4,
+    "nominal": 40,
+    "leak": null,
+    "char": "C",
+    "desc": "4P C40",
+    "group": "auto"
+  },
+  "Автомат 4P C63": {
+    "type": "auto",
+    "poles": 4,
+    "nominal": 63,
+    "leak": null,
+    "char": "C",
+    "desc": "4P C63",
+    "group": "auto"
+  },
+  "УЗО 2P 25/10": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 25,
+    "leak": 10,
+    "char": null,
+    "desc": "УЗО 25А 10мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 25/30": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 25,
+    "leak": 30,
+    "char": null,
+    "desc": "УЗО 25А 30мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 25/100": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 25,
+    "leak": 100,
+    "char": null,
+    "desc": "УЗО 25А 100мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 25/300": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 25,
+    "leak": 300,
+    "char": null,
+    "desc": "УЗО 25А 300мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 32/10": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 32,
+    "leak": 10,
+    "char": null,
+    "desc": "УЗО 32А 10мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 32/30": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 32,
+    "leak": 30,
+    "char": null,
+    "desc": "УЗО 32А 30мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 32/100": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 32,
+    "leak": 100,
+    "char": null,
+    "desc": "УЗО 32А 100мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 32/300": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 32,
+    "leak": 300,
+    "char": null,
+    "desc": "УЗО 32А 300мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 40/10": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 40,
+    "leak": 10,
+    "char": null,
+    "desc": "УЗО 40А 10мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 40/30": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 40,
+    "leak": 30,
+    "char": null,
+    "desc": "УЗО 40А 30мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 40/100": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 40,
+    "leak": 100,
+    "char": null,
+    "desc": "УЗО 40А 100мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 40/300": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 40,
+    "leak": 300,
+    "char": null,
+    "desc": "УЗО 40А 300мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 63/10": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 63,
+    "leak": 10,
+    "char": null,
+    "desc": "УЗО 63А 10мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 63/30": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 63,
+    "leak": 30,
+    "char": null,
+    "desc": "УЗО 63А 30мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 63/100": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 63,
+    "leak": 100,
+    "char": null,
+    "desc": "УЗО 63А 100мА",
+    "group": "rcd"
+  },
+  "УЗО 2P 63/300": {
+    "type": "rcd",
+    "poles": 2,
+    "nominal": 63,
+    "leak": 300,
+    "char": null,
+    "desc": "УЗО 63А 300мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 25/30": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 25,
+    "leak": 30,
+    "char": null,
+    "desc": "УЗО 4P 25А 30мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 25/100": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 25,
+    "leak": 100,
+    "char": null,
+    "desc": "УЗО 4P 25А 100мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 25/300": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 25,
+    "leak": 300,
+    "char": null,
+    "desc": "УЗО 4P 25А 300мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 40/30": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 40,
+    "leak": 30,
+    "char": null,
+    "desc": "УЗО 4P 40А 30мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 40/100": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 40,
+    "leak": 100,
+    "char": null,
+    "desc": "УЗО 4P 40А 100мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 40/300": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 40,
+    "leak": 300,
+    "char": null,
+    "desc": "УЗО 4P 40А 300мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 63/30": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 63,
+    "leak": 30,
+    "char": null,
+    "desc": "УЗО 4P 63А 30мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 63/100": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 63,
+    "leak": 100,
+    "char": null,
+    "desc": "УЗО 4P 63А 100мА",
+    "group": "rcd"
+  },
+  "УЗО 4P 63/300": {
+    "type": "rcd",
+    "poles": 4,
+    "nominal": 63,
+    "leak": 300,
+    "char": null,
+    "desc": "УЗО 4P 63А 300мА",
+    "group": "rcd"
+  },
+  "Дифф 2P 16/10": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 16,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 16А 10мА",
+    "group": "diff"
+  },
+  "Дифф 2P 16/30": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 16,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 16А 30мА",
+    "group": "diff"
+  },
+  "Дифф 2P 25/10": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 25,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 25А 10мА",
+    "group": "diff"
+  },
+  "Дифф 2P 25/30": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 25,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 25А 30мА",
+    "group": "diff"
+  },
+  "Дифф 2P 32/10": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 32,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 32А 10мА",
+    "group": "diff"
+  },
+  "Дифф 2P 32/30": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 32,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 32А 30мА",
+    "group": "diff"
+  },
+  "Дифф 2P 40/10": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 40,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 40А 10мА",
+    "group": "diff"
+  },
+  "Дифф 2P 40/30": {
+    "type": "diff",
+    "poles": 2,
+    "nominal": 40,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 40А 30мА",
+    "group": "diff"
+  },
+  "Дифф 3P 25/10": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 25,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 3P 25А 10мА",
+    "group": "diff"
+  },
+  "Дифф 3P 25/30": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 25,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 3P 25А 30мА",
+    "group": "diff"
+  },
+  "Дифф 3P 25/300": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 25,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 3P 25А 300мА",
+    "group": "diff"
+  },
+  "Дифф 3P 32/10": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 32,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 3P 32А 10мА",
+    "group": "diff"
+  },
+  "Дифф 3P 32/30": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 32,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 3P 32А 30мА",
+    "group": "diff"
+  },
+  "Дифф 3P 32/300": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 32,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 3P 32А 300мА",
+    "group": "diff"
+  },
+  "Дифф 3P 40/10": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 40,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 3P 40А 10мА",
+    "group": "diff"
+  },
+  "Дифф 3P 40/30": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 40,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 3P 40А 30мА",
+    "group": "diff"
+  },
+  "Дифф 3P 40/300": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 40,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 3P 40А 300мА",
+    "group": "diff"
+  },
+  "Дифф 3P 63/10": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 63,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 3P 63А 10мА",
+    "group": "diff"
+  },
+  "Дифф 3P 63/30": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 63,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 3P 63А 30мА",
+    "group": "diff"
+  },
+  "Дифф 3P 63/300": {
+    "type": "diff",
+    "poles": 3,
+    "nominal": 63,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 3P 63А 300мА",
+    "group": "diff"
+  },
+  "Дифф 4P 25/30": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 25,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 4P 25А 30мА",
+    "group": "diff"
+  },
+  "Дифф 4P 25/300": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 25,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 4P 25А 300мА",
+    "group": "diff"
+  },
+  "Дифф 4P 32/30": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 32,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 4P 32А 30мА",
+    "group": "diff"
+  },
+  "Дифф 4P 32/300": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 32,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 4P 32А 300мА",
+    "group": "diff"
+  },
+  "Дифф 4P 40/30": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 40,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 4P 40А 30мА",
+    "group": "diff"
+  },
+  "Дифф 4P 40/300": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 40,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 4P 40А 300мА",
+    "group": "diff"
+  },
+  "Дифф 4P 63/30": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 63,
+    "leak": 30,
+    "char": "C",
+    "desc": "Дифф 4P 63А 30мА",
+    "group": "diff"
+  },
+  "Дифф 4P 63/300": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 63,
+    "leak": 300,
+    "char": "C",
+    "desc": "Дифф 4P 63А 300мА",
+    "group": "diff"
+  },
+  "Рубильник 2P 40": {
+    "type": "main",
+    "poles": 2,
+    "nominal": 40,
+    "leak": null,
+    "char": null,
+    "desc": "Рубильник 2P 40А",
+    "group": "main"
+  },
+  "Рубильник 2P 63": {
+    "type": "main",
+    "poles": 2,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Рубильник 2P 63А",
+    "group": "main"
+  },
+  "Рубильник 3P 40": {
+    "type": "main",
+    "poles": 3,
+    "nominal": 40,
+    "leak": null,
+    "char": null,
+    "desc": "Рубильник 3P 40А",
+    "group": "main"
+  },
+  "Рубильник 3P 63": {
+    "type": "main",
+    "poles": 3,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Рубильник 3P 63А",
+    "group": "main"
+  },
+  "Рубильник 4P 40": {
+    "type": "main",
+    "poles": 4,
+    "nominal": 40,
+    "leak": null,
+    "char": null,
+    "desc": "Рубильник 4P 40А",
+    "group": "main"
+  },
+  "Рубильник 4P 63": {
+    "type": "main",
+    "poles": 4,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Рубильник 4P 63А",
+    "group": "main"
+  },
+  "Стабилизатор 5кВт 25А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 25,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 5кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 5кВт 32А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 32,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 5кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 5кВт 40А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 40,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 5кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 5кВт 63А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 5кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 8кВт 25А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 25,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 8кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 8кВт 32А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 32,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 8кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 8кВт 40А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 40,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 8кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 8кВт 63А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 8кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 10кВт 25А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 25,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 10кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 10кВт 32А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 32,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 10кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 10кВт 40А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 40,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 10кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 10кВт 63А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 10кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 15кВт 25А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 25,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 15кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 15кВт 32А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 32,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 15кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 15кВт 40А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 40,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 15кВт",
+    "group": "stabilizer"
+  },
+  "Стабилизатор 15кВт 63А": {
+    "type": "stabilizer",
+    "poles": 2,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Стаб. 15кВт",
+    "group": "stabilizer"
+  },
+  "Счётчик 1ф": {
+    "type": "meter",
+    "poles": 2,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Счётчик 1ф",
+    "group": "meter"
+  },
+  "Счётчик 3ф": {
+    "type": "meter",
+    "poles": 4,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Счётчик 3ф",
+    "group": "meter"
+  },
+  "Шина N (2)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина N",
+    "group": "bus",
+    "bus_color": "#1E88E5",
+    "bus_outputs": 2
+  },
+  "Шина N (4)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина N",
+    "group": "bus",
+    "bus_color": "#1E88E5",
+    "bus_outputs": 4
+  },
+  "Шина N (6)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина N",
+    "group": "bus",
+    "bus_color": "#1E88E5",
+    "bus_outputs": 6
+  },
+  "Шина N (8)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина N",
+    "group": "bus",
+    "bus_color": "#1E88E5",
+    "bus_outputs": 8
+  },
+  "Шина N (12)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина N",
+    "group": "bus",
+    "bus_color": "#1E88E5",
+    "bus_outputs": 12
+  },
+  "Шина PE (2)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина PE",
+    "group": "bus",
+    "bus_color": "#FDD835",
+    "bus_outputs": 2
+  },
+  "Шина PE (4)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина PE",
+    "group": "bus",
+    "bus_color": "#FDD835",
+    "bus_outputs": 4
+  },
+  "Шина PE (6)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина PE",
+    "group": "bus",
+    "bus_color": "#FDD835",
+    "bus_outputs": 6
+  },
+  "Шина PE (8)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина PE",
+    "group": "bus",
+    "bus_color": "#FDD835",
+    "bus_outputs": 8
+  },
+  "Шина PE (12)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина PE",
+    "group": "bus",
+    "bus_color": "#FDD835",
+    "bus_outputs": 12
+  },
+  "Шина L1 (2)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L1",
+    "group": "bus",
+    "bus_color": "#E53935",
+    "bus_outputs": 2
+  },
+  "Шина L1 (4)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L1",
+    "group": "bus",
+    "bus_color": "#E53935",
+    "bus_outputs": 4
+  },
+  "Шина L1 (6)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L1",
+    "group": "bus",
+    "bus_color": "#E53935",
+    "bus_outputs": 6
+  },
+  "Шина L1 (8)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L1",
+    "group": "bus",
+    "bus_color": "#E53935",
+    "bus_outputs": 8
+  },
+  "Шина L1 (12)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L1",
+    "group": "bus",
+    "bus_color": "#E53935",
+    "bus_outputs": 12
+  },
+  "Шина L2 (2)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L2",
+    "group": "bus",
+    "bus_color": "#43A047",
+    "bus_outputs": 2
+  },
+  "Шина L2 (4)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L2",
+    "group": "bus",
+    "bus_color": "#43A047",
+    "bus_outputs": 4
+  },
+  "Шина L2 (6)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L2",
+    "group": "bus",
+    "bus_color": "#43A047",
+    "bus_outputs": 6
+  },
+  "Шина L2 (8)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L2",
+    "group": "bus",
+    "bus_color": "#43A047",
+    "bus_outputs": 8
+  },
+  "Шина L2 (12)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L2",
+    "group": "bus",
+    "bus_color": "#43A047",
+    "bus_outputs": 12
+  },
+  "Шина L3 (2)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L3",
+    "group": "bus",
+    "bus_color": "#000000",
+    "bus_outputs": 2
+  },
+  "Шина L3 (4)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L3",
+    "group": "bus",
+    "bus_color": "#000000",
+    "bus_outputs": 4
+  },
+  "Шина L3 (6)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L3",
+    "group": "bus",
+    "bus_color": "#000000",
+    "bus_outputs": 6
+  },
+  "Шина L3 (8)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L3",
+    "group": "bus",
+    "bus_color": "#000000",
+    "bus_outputs": 8
+  },
+  "Шина L3 (12)": {
+    "type": "bus",
+    "poles": 1,
+    "nominal": 63,
+    "leak": null,
+    "char": null,
+    "desc": "Шина L3",
+    "group": "bus",
+    "bus_color": "#000000",
+    "bus_outputs": 12
+  },
+  "Дифф 4P 25/10": {
+    "type": "diff",
+    "poles": 4,
+    "nominal": 25,
+    "leak": 10,
+    "char": "C",
+    "desc": "Дифф 4P 25/10",
+    "group": "diff"
+  }
+}
