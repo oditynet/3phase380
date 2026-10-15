@@ -535,7 +535,7 @@
       "x": 935.6521739130435,
       "y": 743.4782608695652,
       "diameter": 12,
-      "disabled": true,
+      "disabled": false,
       "appliance": {
         "name": "Бойлер",
         "power_kw": 3.0,
